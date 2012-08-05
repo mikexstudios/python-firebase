@@ -36,7 +36,8 @@ How to use
     `firebase/__init__.py` for what methods are available and how to call
     them). For example, to push a list of data:
 
-        r = f.push('message_list', {'user_id': 'wilma', 'text': 'Hello'})
+        f = Firebase('http://demo.firebase.com/SampleChat/message_list')
+        r = f.push({'user_id': 'wilma', 'text': 'Hello'})
 
     The response `r` is a dictionary containing Firebase's REST response:
 
