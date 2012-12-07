@@ -29,7 +29,7 @@ How to use
 
     and then instantiate Firebase, passing in your root url:
 
-        f = Firebase('http://demo.firebase.com/SampleChat')
+        f = Firebase('https://SampleChat.firebaseIO-demo.com/')
 
     You may optionaly pass a [Firebase authentication token](https://www.firebase.com/docs/security/custom-login.html) to secure your calls:
 
@@ -40,7 +40,7 @@ How to use
     `firebase/__init__.py` for what methods are available and how to call
     them). For example, to push a list of data:
 
-        f = Firebase('http://demo.firebase.com/SampleChat/message_list')
+        f = Firebase('https://SampleChat.firebaseIO-demo.com/message_list')
         r = f.push({'user_id': 'wilma', 'text': 'Hello'})
 
     The response `r` is a dictionary containing Firebase's REST response:
