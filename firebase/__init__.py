@@ -49,6 +49,9 @@ class Firebase():
     def put(self, data):
         return self.__request('put', data = data)
 
+    def patch(self, data):
+        return self.__request('patch', data = data)
+
     def get(self):
         return self.__request('get')
 
