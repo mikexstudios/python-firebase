@@ -40,6 +40,9 @@ class Firebase():
     def push(self, data):
         return self.post(data)
 
+    def update(self, data):
+        return self.patch(data)
+
     def remove(self):
         return self.delete()
 
