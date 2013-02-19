@@ -40,6 +40,9 @@ class Firebase():
     def push(self, data):
         return self.post(data)
 
+    def update(self, data):
+        return self.patch(data)
+
     def remove(self):
         return self.delete()
 
@@ -48,6 +51,9 @@ class Firebase():
 
     def put(self, data):
         return self.__request('put', data = data)
+
+    def patch(self, data):
+        return self.__request('patch', data = data)
 
     def get(self):
         return self.__request('get')
