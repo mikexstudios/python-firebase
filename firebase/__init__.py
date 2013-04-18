@@ -77,10 +77,14 @@ class Firebase():
         if 'data' in kwargs:
             kwargs['data'] = json.dumps(kwargs['data'])
 
+        params = {}
         if self.auth_token:
-            kwargs['auth'] = self.auth_token
+            if 'params' in kwargs:
+                params = kwargs['params']
+                del kwargs['params']
+            params.update({'auth': self.auth_token})
 
-        r = requests.request(method, self.__url(), **kwargs)
+        r = requests.request(method, self.__url(), params=params, **kwargs)
         r.raise_for_status() #throw exception if error
         return r.json
 
