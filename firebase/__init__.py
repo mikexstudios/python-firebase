@@ -8,8 +8,9 @@ import json #for dumps
 class Firebase():
     ROOT_URL = '' #no trailing slash
 
-    def __init__(self, root_url):
+    def __init__(self, root_url, auth_token=None):
         self.ROOT_URL = root_url.rstrip('/')
+        self.auth_token = auth_token
 
     #These methods are intended to mimic Firebase API calls.
 
@@ -75,6 +76,9 @@ class Firebase():
         #be JSON encoded.
         if 'data' in kwargs:
             kwargs['data'] = json.dumps(kwargs['data'])
+
+        if self.auth_token:
+            kwargs['auth'] = self.auth_token
 
         r = requests.request(method, self.__url(), **kwargs)
         r.raise_for_status() #throw exception if error
