@@ -86,7 +86,7 @@ class Firebase():
 
         r = requests.request(method, self.__url(), params=params, **kwargs)
         r.raise_for_status() #throw exception if error
-        return r.json
+        return r.json()
 
 
     def __url(self):
