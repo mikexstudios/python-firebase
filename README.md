@@ -33,7 +33,7 @@ How to use
 
     You may optionaly pass a [Firebase authentication token](https://www.firebase.com/docs/security/custom-login.html) to secure your calls:
 
-        f = Firebase('http://demo.firebase.com/SampleChat', auth_token="<my_firebase_auth_token>")
+        f = Firebase('http://SampleChat.firebaseIO-demo.com/', auth_token="<my_firebase_auth_token>")
 
     Now call the different methods of the Firebase class (see the Firebase
     REST API page: http://www.firebase.com/docs/rest-api.html and the source of
