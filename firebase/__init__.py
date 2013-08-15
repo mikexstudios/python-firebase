@@ -7,10 +7,12 @@ import json #for dumps
 
 class Firebase():
     ROOT_URL = '' #no trailing slash
+    VERIFY_SSL = True #have requests validate SSL cert of firebase
 
-    def __init__(self, root_url, auth_token=None):
+    def __init__(self, root_url, auth_token = None, verify_ssl = True):
         self.ROOT_URL = root_url.rstrip('/')
         self.auth_token = auth_token
+        self.VERIFY_SSL = verify_ssl
 
     #These methods are intended to mimic Firebase API calls.
 
@@ -84,7 +86,8 @@ class Firebase():
                 del kwargs['params']
             params.update({'auth': self.auth_token})
 
-        r = requests.request(method, self.__url(), params=params, **kwargs)
+        r = requests.request(method, self.__url(), params = params, 
+                verify = self.VERIFY_SSL, **kwargs)
         r.raise_for_status() #throw exception if error
         return r.json()
 

@@ -35,6 +35,12 @@ How to use
 
         f = Firebase('http://SampleChat.firebaseIO-demo.com/', auth_token="<my_firebase_auth_token>")
 
+    If you are having SSL certificate verification issues, see 
+    [this stackoverflow thread for more information](http://stackoverflow.com/questions/10667960/python-requests-throwing-up-sslerror).
+    If you would like to bypass SSL certificate checking, you may set the `verify_ssl` flag to `False`:
+
+        f = Firebase('http://SampleChat.firebaseIO-demo.com/', auth_token="<my_firebase_auth_token>", verify_ssl = False)
+
     Now call the different methods of the Firebase class (see the Firebase
     REST API page: http://www.firebase.com/docs/rest-api.html and the source of
     `firebase/__init__.py` for what methods are available and how to call
