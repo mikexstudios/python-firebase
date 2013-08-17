@@ -7,10 +7,14 @@ import json #for dumps
 
 class Firebase():
     ROOT_URL = '' #no trailing slash
+    #Dictionary of additional arguments passed to requests library
+    #See: http://www.python-requests.org/en/latest/api.html#requests.request
+    REQUEST_ARGS = {} 
 
-    def __init__(self, root_url, auth_token=None):
+    def __init__(self, root_url, auth_token = None, request_args = {}):
         self.ROOT_URL = root_url.rstrip('/')
         self.auth_token = auth_token
+        self.REQUEST_ARGS = request_args
 
     #These methods are intended to mimic Firebase API calls.
 
@@ -72,6 +76,9 @@ class Firebase():
     #Private
 
     def __request(self, method, **kwargs):
+        #Merge in request arguments set during initialization
+        kwargs.update(self.REQUEST_ARGS)
+
         #Firebase API does not accept form-encoded PUT/POST data. It needs to
         #be JSON encoded.
         if 'data' in kwargs:

@@ -31,9 +31,19 @@ How to use
 
         f = Firebase('https://SampleChat.firebaseIO-demo.com/')
 
-    You may optionaly pass a [Firebase authentication token](https://www.firebase.com/docs/security/custom-login.html) to secure your calls:
+    You may optionally pass a [Firebase authentication token](https://www.firebase.com/docs/security/custom-login.html) to secure your calls:
 
-        f = Firebase('http://SampleChat.firebaseIO-demo.com/', auth_token="<my_firebase_auth_token>")
+        f = Firebase('http://SampleChat.firebaseIO-demo.com/', auth_token = "<my_firebase_auth_token>")
+
+    In addition, you can set extra arguments passed for each request by placing the
+    parameters inside a `request_args` dictionary during instantiation:
+
+        f = Firebase('http://SampleChat.firebaseIO-demo.com/', auth_token = "<my_firebase_auth_token>", request_args = {'verify': False, 'timeout': 10})
+
+    Possible keys and values for `request_args` can be found on the [requests 
+    library api page](http://www.python-requests.org/en/latest/api.html#requests.request).
+    For example, setting `verify = False` disables SSL certificate verification
+    and `timeout = 60` lets the request fail after 60 seconds of inactivity.
 
     Now call the different methods of the Firebase class (see the Firebase
     REST API page: http://www.firebase.com/docs/rest-api.html and the source of
