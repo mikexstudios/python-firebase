@@ -1,3 +1,12 @@
+## ⛔️ DEPRECATED
+
+[![No Maintenance Intended](http://unmaintained.tech/badge.svg)](http://unmaintained.tech/)
+
+python-firebase has been unmaintained for years and is no longer supported. Please 
+consider [using another library][firebase-rest-libraries] instead.
+
+[firebase-rest-libraries]: https://firebase.google.com/docs/database/rest/start#section-library
+
 python-firebase
 ===============
 http://github.com/mikexstudios/python-firebase
